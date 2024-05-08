@@ -7,6 +7,8 @@ A list of open-source aviation projects and data.
 ## Content
 * [ADS-B Data](#ads-b-data)
 * [Airport Data](#airport-data)
+* [OSINT](#osint)
+* [Tools and Libraries](#tools-and-libraries)
 
 
 ## ADS-B Data
@@ -24,5 +26,9 @@ A list of open-source aviation projects and data.
 * [navaids.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/navaids.csv)
 * [airport-comments.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/airport-comments.csv) - Community comments
 
+## OSINT
+* [skytrack](https://github.com/ANG13T/skytrack) - A planespotting and aircraft OSINT tool made using Python
 
- 
+## Tools and Libraries
+* [traffic-viz](https://github.com/xoolive/traffic) - A toolbox for processing and analysing air traffic data
+* [pitot](https://github.com/open-aviation/pitot) - A toolbox for aeronautic calculations
