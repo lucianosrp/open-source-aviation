@@ -16,7 +16,7 @@ A list of open-source aviation projects and data.
 
 
 ## Airport Data
-#### OurAirports.com - @davidmegginson
+#### [OurAirports.com](https://ourairports.com/)
 * [ourairports.com](https://ourairports.com/) - Community-driven airport database which includes geo coordinates, airport names and more.
 * [airports.csv](https://github.com/davidmegginson/ourairports-data/raw/main/airports.csv) - Raw CSV file of OurAirports.com,  78K+ airports
 * [runways.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/runways.csv) - Runways information. Including length, width, altitude and more.
@@ -26,8 +26,8 @@ A list of open-source aviation projects and data.
 * [navaids.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/navaids.csv)
 * [airport-comments.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/airport-comments.csv) - Community comments
 
-#### [OurAirports.com](https://openflights.org/)
-* (airports.dat)[https://raw.githubusercontent.com/jpatokal/openflights/master/data/airports.dat] - Airport data, might be outdated
+#### [openflights.org](https://openflights.org/)
+* [airports.dat](https://raw.githubusercontent.com/jpatokal/openflights/master/data/airports.dat) - Airport data, might be outdated
 
 ## OSINT
 * [skytrack](https://github.com/ANG13T/skytrack) - A planespotting and aircraft OSINT tool made using Python
