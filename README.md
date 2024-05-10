@@ -26,6 +26,9 @@ A list of open-source aviation projects and data.
 * [navaids.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/navaids.csv)
 * [airport-comments.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/airport-comments.csv) - Community comments
 
+#### [OurAirports.com](https://openflights.org/)
+* (airports.dat)[https://raw.githubusercontent.com/jpatokal/openflights/master/data/airports.dat] - Airport data, might be outdated
+
 ## OSINT
 * [skytrack](https://github.com/ANG13T/skytrack) - A planespotting and aircraft OSINT tool made using Python
 
