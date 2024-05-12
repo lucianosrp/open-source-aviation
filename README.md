@@ -18,7 +18,7 @@ A list of open-source aviation projects and data.
 ## Airport Data
 #### [OurAirports.com](https://ourairports.com/)
 * [ourairports.com](https://ourairports.com/) - Community-driven airport database which includes geo coordinates, airport names and more.
-* [airports.csv](https://github.com/davidmegginson/ourairports-data/raw/main/airports.csv) - Raw CSV file of OurAirports.com,  78K+ airports
+* [airports.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/airports.csv) - Raw CSV file of OurAirports.com,  78K+ airports
 * [runways.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/runways.csv) - Runways information. Including length, width, altitude and more.
 * [airport-frequencies.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/airport-frequencies.csv) - MHZ Airport Frequencies.
 * [countries.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/countries.csv) - Additional Country data
