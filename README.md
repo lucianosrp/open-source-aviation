@@ -36,3 +36,16 @@ A list of open-source aviation projects and data.
 * [traffic-viz](https://github.com/xoolive/traffic) - A toolbox for processing and analysing air traffic data
 * [pitot](https://github.com/open-aviation/pitot) - A toolbox for aeronautic calculations
 * [openap-top](https://github.com/junzis/openap-top) - Open flight trajectory optimizer built with non-linear optimal control method
+
+----
+
+# Data Metadata
+
+| name                    | last_modified       |   row_count |
+|:------------------------|:--------------------|------------:|
+| runways.csv             | 2024-05-12 07:53:36 |       45783 |
+| airport-comments.csv    | 2024-05-12 07:53:36 |       15431 |
+| airport-frequencies.csv | 2024-05-05 07:53:30 |       29365 |
+| regions.csv             | 2024-04-17 07:53:40 |        3935 |
+| navaids.csv             | 2023-06-04 07:53:28 |       11020 |
+| countries.csv           | 2022-11-03 07:53:39 |         248 |
