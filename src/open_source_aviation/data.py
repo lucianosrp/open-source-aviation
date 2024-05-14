@@ -78,6 +78,7 @@ if __name__ == "__main__":
 
     df = pd.DataFrame(data.get_info()).sort_values("last_modified", ascending=False)
     df["last_modified"] = df.last_modified.dt.strftime("%F %T")
+    df["row_count"] = df.row_count.apply(lambda x: f"{x:,}")
 
     push = False
 
@@ -100,7 +101,7 @@ if __name__ == "__main__":
         current_repo = Repo(Path.cwd())
         current_repo.index.add(["README.md"])
         current_repo.index.commit(
-            f"Auto :{datetime.datetime.now():%F} - Update data metadata"
+            f"Auto: {datetime.datetime.now():%F} - Update data metadata"
         )
         origin = current_repo.remote(name="origin")
         origin.push()
