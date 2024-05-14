@@ -41,12 +41,12 @@ A list of open-source aviation projects and data.
 
 # Data Metadata
 
-| name                    | last_modified       |   row_count |
-|:------------------------|:--------------------|------------:|
-| airports.csv            | 2024-05-12 07:53:36 |       78876 |
-| runways.csv             | 2024-05-12 07:53:36 |       45783 |
-| airport-comments.csv    | 2024-05-12 07:53:36 |       15431 |
-| airport-frequencies.csv | 2024-05-05 07:53:30 |       29365 |
-| regions.csv             | 2024-04-17 07:53:40 |        3935 |
-| navaids.csv             | 2023-06-04 07:53:28 |       11020 |
-| countries.csv           | 2022-11-03 07:53:39 |         248 |
+| name                    | last_modified       | row_count   |
+|:------------------------|:--------------------|:------------|
+| airports.csv            | 2024-05-13 07:53:39 | 78945:,     |
+| runways.csv             | 2024-05-13 07:53:39 | 45784:,     |
+| airport-comments.csv    | 2024-05-12 07:53:36 | 15431:,     |
+| airport-frequencies.csv | 2024-05-05 07:53:30 | 29365:,     |
+| regions.csv             | 2024-04-17 07:53:40 | 3935:,      |
+| navaids.csv             | 2023-06-04 07:53:28 | 11020:,     |
+| countries.csv           | 2022-11-03 07:53:39 | 248:,       |
