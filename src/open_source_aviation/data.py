@@ -104,4 +104,5 @@ if __name__ == "__main__":
             f"Auto: {datetime.datetime.now():%F} - Update data metadata"
         )
         origin = current_repo.remote(name="origin")
+        origin.pull()
         origin.push()
