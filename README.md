@@ -28,6 +28,9 @@ A list of open-source aviation projects and data.
 
 #### [openflights.org](https://openflights.org/)
 * [airports.dat](https://raw.githubusercontent.com/jpatokal/openflights/master/data/airports.dat) - Airport data, might be outdated
+* [airports-extended.dat](https://raw.githubusercontent.com/jpatokal/openflights/master/data/airports-extended.dat) - Airports, train stations and ferry terminals, including user contributions
+* [airlines.dat](https://raw.githubusercontent.com/jpatokal/openflights/master/data/airlines.dat)
+* [routes.dat](https://raw.githubusercontent.com/jpatokal/openflights/master/data/routes.dat)
 
 ## OSINT
 * [skytrack](https://github.com/ANG13T/skytrack) - A planespotting and aircraft OSINT tool made using Python
