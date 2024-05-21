@@ -44,12 +44,16 @@ A list of open-source aviation projects and data.
 
 # Data Metadata
 
-| name                    | last_modified       | row_count   |
-|:------------------------|:--------------------|:------------|
-| airports.csv            | 2024-05-21 07:53:48 | 79,510      |
-| runways.csv             | 2024-05-21 07:53:48 | 45,814      |
-| airport-comments.csv    | 2024-05-18 07:53:36 | 15,434      |
-| airport-frequencies.csv | 2024-05-05 07:53:30 | 29,365      |
-| regions.csv             | 2024-04-17 07:53:40 | 3,935       |
-| navaids.csv             | 2023-06-04 07:53:28 | 11,020      |
-| countries.csv           | 2022-11-03 07:53:39 | 248         |
+| name                                                                                                                      | last_modified       | row_count   |
+|:--------------------------------------------------------------------------------------------------------------------------|:--------------------|:------------|
+| [airports.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/airports.csv)                       | 2024-05-21 07:53:48 | 79,510      |
+| [runways.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/runways.csv)                         | 2024-05-21 07:53:48 | 45,814      |
+| [airport-comments.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/airport-comments.csv)       | 2024-05-18 07:53:36 | 15,434      |
+| [airport-frequencies.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/airport-frequencies.csv) | 2024-05-05 07:53:30 | 29,365      |
+| [regions.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/regions.csv)                         | 2024-04-17 07:53:40 | 3,935       |
+| [navaids.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/navaids.csv)                         | 2023-06-04 07:53:28 | 11,020      |
+| [countries.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/countries.csv)                     | 2022-11-03 07:53:39 | 248         |
+| [airports.dat](https://raw.githubusercontent.com/jpatokal/openflights/master/data/airports.dat)                           | 2019-05-13 11:54:02 | 7,697       |
+| [airports-extended.dat](https://raw.githubusercontent.com/jpatokal/openflights/master/data/airports-extended.dat)         | 2019-05-13 11:54:02 | 12,667      |
+| [airlines.dat](https://raw.githubusercontent.com/jpatokal/openflights/master/data/airlines.dat)                           | 2017-02-02 11:32:12 | 6,161       |
+| [routes.dat](https://raw.githubusercontent.com/jpatokal/openflights/master/data/routes.dat)                               | 2017-02-02 11:32:12 | 67,662      |
