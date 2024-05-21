@@ -46,8 +46,8 @@ A list of open-source aviation projects and data.
 
 | name                    | last_modified       | row_count   |
 |:------------------------|:--------------------|:------------|
-| airports.csv            | 2024-05-19 07:53:44 | 79,503      |
-| runways.csv             | 2024-05-19 07:53:44 | 45,806      |
+| airports.csv            | 2024-05-21 07:53:48 | 79,510      |
+| runways.csv             | 2024-05-21 07:53:48 | 45,814      |
 | airport-comments.csv    | 2024-05-18 07:53:36 | 15,434      |
 | airport-frequencies.csv | 2024-05-05 07:53:30 | 29,365      |
 | regions.csv             | 2024-04-17 07:53:40 | 3,935       |
