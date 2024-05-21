@@ -35,28 +35,38 @@ class BaseData(ABC):
     @abstractmethod
     def get_last_modified(self, url: str) -> datetime.datetime | None: ...
 
-    def get_stats(self) -> Iterable[FileInfo]: ...
+    @abstractmethod
+    def get_info(self) -> Iterable[FileInfo]: ...
 
 
-class RawGitHubCSVData(BaseData):
-    pattern = r".+(https://raw.+/.+csv)"
+def validate_git_file_path(url: str) -> str:
+    a, b = url.split("/")[-2:]
+    if a in ("master", "main"):
+        return b
+    else:
+        return f"{a}/{b}"
 
+
+class GitHubData(BaseData):
     def _get_gh_link(self, url: str) -> re.Match[str] | None:
-        groups = r"(?P<base>https://.+/)(?P<user>.+)/(?P<repo>.+)/.+/.+"
+        groups = r"(?P<base>https:.+\/.+\.com\/)(?P<user>\w+)\/(?P<repo>\w+(-)?\w+?)\/"
         return re.match(groups, url)
 
     def get_last_modified(self, url: str) -> datetime.datetime | None:
         if match := self._get_gh_link(url):
             match = match.groupdict()
             user, repo = match.get("user"), match.get("repo")
-            file = url.split("/")[-1]
+            file = validate_git_file_path(url)
             api_url = f"https://api.github.com/repos/{user}/{repo}/commits?path={file}"
+            print(api_url)
             headers = {"Authorization": f"Bearer {GH_TOKEN}"}
             res = requests.get(api_url, headers=headers if GH_TOKEN else None)
             if res.status_code == 200:
                 return datetime.datetime.fromisoformat(
                     res.json()[0]["commit"]["author"]["date"]
                 )
+            else:
+                print(f"got {res.status_code}: {res.text}")
 
     def read(self) -> Iterable[pd.DataFrame]:
         for url in self.get_links():
@@ -65,18 +75,33 @@ class RawGitHubCSVData(BaseData):
     def get_info(self) -> Iterable[FileInfo]:
         for url in self.get_links():
             filename = url.split("/")[-1]
+            file_markdown = f"[{filename}]({url})"
             last_modified = self.get_last_modified(url)
             row_count = len(pd.read_csv(url))
 
-            yield FileInfo(filename, last_modified, row_count)
+            yield FileInfo(file_markdown, last_modified, row_count)
+
+
+class GitHubCSVData(GitHubData):
+    pattern = r".+(https://raw.+/.+\.csv)"
+
+
+class GitHubDatData(GitHubData):
+    pattern = r".+(https://raw.+/.+\.dat)"
 
 
 if __name__ == "__main__":
     readme = Path.cwd() / "README.md"
     f = readme.read_text()
-    data = RawGitHubCSVData(f)
-
-    df = pd.DataFrame(data.get_info()).sort_values("last_modified", ascending=False)
+    # data = GitHubCSVData(f)
+    datas = [GitHubCSVData(f), GitHubDatData(f)]
+    df = pd.concat(
+        [
+            pd.DataFrame(data.get_info()).sort_values("last_modified", ascending=False)
+            for data in datas
+        ],
+        axis=0,
+    )
     df["last_modified"] = df.last_modified.dt.strftime("%F %T")
     df["row_count"] = df.row_count.apply(lambda x: f"{x:,}")
 
@@ -104,5 +129,4 @@ if __name__ == "__main__":
             f"Auto: {datetime.datetime.now():%F} - Update data metadata"
         )
         origin = current_repo.remote(name="origin")
-        origin.pull()
         origin.push()
