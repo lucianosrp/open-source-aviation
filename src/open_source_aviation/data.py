@@ -58,7 +58,6 @@ class GitHubData(BaseData):
             user, repo = match.get("user"), match.get("repo")
             file = validate_git_file_path(url)
             api_url = f"https://api.github.com/repos/{user}/{repo}/commits?path={file}"
-            print(api_url)
             headers = {"Authorization": f"Bearer {GH_TOKEN}"}
             res = requests.get(api_url, headers=headers if GH_TOKEN else None)
             if res.status_code == 200:
@@ -93,7 +92,10 @@ class GitHubDatData(GitHubData):
 if __name__ == "__main__":
     readme = Path.cwd() / "README.md"
     f = readme.read_text()
-    # data = GitHubCSVData(f)
+    pattern = r"(.*?)(?=\n# Data Metadata)"
+    f = re.search(pattern, f, re.DOTALL)
+    f = f.group(0)
+
     datas = [GitHubCSVData(f), GitHubDatData(f)]
     df = pd.concat(
         [
