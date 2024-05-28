@@ -40,6 +40,9 @@ A list of open-source aviation projects and data.
 * [pitot](https://github.com/open-aviation/pitot) - A toolbox for aeronautic calculations
 * [openap-top](https://github.com/junzis/openap-top) - Open flight trajectory optimizer built with non-linear optimal control method
 
+## Other Lists
+* [awesome-flying](https://github.com/bauidch/awesome-flying) - A curated list of flying/aviation tools
+
 ----
 
 # Data Metadata
