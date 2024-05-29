@@ -7,8 +7,10 @@ A list of open-source aviation projects and data.
 ## Content
 * [ADS-B Data](#ads-b-data)
 * [Airport Data](#airport-data)
+* [Weather Data](#weather-data)
 * [OSINT](#osint)
 * [Tools and Libraries](#tools-and-libraries)
+* [Other Lists](#other-lists)
 
 
 ## ADS-B Data
@@ -31,6 +33,10 @@ A list of open-source aviation projects and data.
 * [airports-extended.dat](https://raw.githubusercontent.com/jpatokal/openflights/master/data/airports-extended.dat) - Airports, train stations and ferry terminals, including user contributions
 * [airlines.dat](https://raw.githubusercontent.com/jpatokal/openflights/master/data/airlines.dat)
 * [routes.dat](https://raw.githubusercontent.com/jpatokal/openflights/master/data/routes.dat)
+
+## Weather Data
+
+* [NOAA's METAR](https://tgftp.nws.noaa.gov/data/observations/metar/stations/) - Up-to-date METARs, for a specific stagion you can add the {ICAO}.TXT at the end of the url (e.g. [EGLL](https://tgftp.nws.noaa.gov/data/observations/metar/stations/EGLL.TXT))
 
 ## OSINT
 * [skytrack](https://github.com/ANG13T/skytrack) - A planespotting and aircraft OSINT tool made using Python
