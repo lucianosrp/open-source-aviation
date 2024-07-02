@@ -34,9 +34,13 @@ A list of open-source aviation projects and data.
 * [airlines.dat](https://raw.githubusercontent.com/jpatokal/openflights/master/data/airlines.dat)
 * [routes.dat](https://raw.githubusercontent.com/jpatokal/openflights/master/data/routes.dat)
 
+#### [aviowiki](https://aviowiki.com/)
+* [free_airports.json.zip](https://exports.aviowiki.com/free_airports.json.zip) - 32K structured airport data
+
 ## Weather Data
 
 * [NOAA's METAR](https://tgftp.nws.noaa.gov/data/observations/metar/stations/) - Up-to-date METARs, for a specific station you can add the {ICAO}.TXT at the end of the url (e.g. [EGLL](https://tgftp.nws.noaa.gov/data/observations/metar/stations/EGLL.TXT))
+* [AVWX-Engine](https://github.com/avwx-rest/avwx-engine) - Aviation Weather parsing engine. METAR & TAF
 
 ## OSINT
 * [skytrack](https://github.com/ANG13T/skytrack) - A planespotting and aircraft OSINT tool made using Python
