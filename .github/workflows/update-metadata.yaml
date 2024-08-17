@@ -6,7 +6,7 @@ on:
       - main
 
   schedule:
-    - cron: '0 8 * * *'
+    - cron: "0 8 * * *"
 
   workflow_dispatch:
 
@@ -15,20 +15,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Set up Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.12'  
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.lock
+      - name: Install dependencies
+        run: |
+          curl -LsSf https://astral.sh/uv/install.sh | sh
+          uv pip install -r requirements.lock
 
-    - name: Run Python script
-      env:
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: python src/open_source_aviation/data.py
+      - name: Update Tabl
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          python src/open_source_aviation/data.py
+          git add README.md
+          git commit -m "Update Table"
+          git push

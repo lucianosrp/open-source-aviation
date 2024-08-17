@@ -99,7 +99,9 @@ if __name__ == "__main__":
     datas = [GitHubCSVData(f), GitHubDatData(f)]
     df = pd.concat(
         [
-            pd.DataFrame(data.get_info()).sort_values("last_modified", ascending=False)
+            pd.DataFrame(data.get_info()).sort_values(
+                "last_modified", ascending=False
+            )
             for data in datas
         ],
         axis=0,
@@ -122,13 +124,3 @@ if __name__ == "__main__":
                 push = True
                 break
             line = f.readline()
-
-    if push:
-        # Commit and push
-        current_repo = Repo(Path.cwd())
-        current_repo.index.add(["README.md"])
-        current_repo.index.commit(
-            f"Auto: {datetime.datetime.now():%F} - Update data metadata"
-        )
-        origin = current_repo.remote(name="origin")
-        origin.push()
