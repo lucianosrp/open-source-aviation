@@ -26,7 +26,7 @@ jobs:
       - name: Install dependencies
         run: |
           curl -LsSf https://astral.sh/uv/install.sh | sh
-          uv pip install -r requirements.lock
+          uv pip install -r requirements.lock --system
 
       - name: Update Tabl
         env:
