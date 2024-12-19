@@ -50,6 +50,9 @@ A list of open-source aviation projects and data.
 * [pitot](https://github.com/open-aviation/pitot) - A toolbox for aeronautic calculations
 * [openap-top](https://github.com/junzis/openap-top) - Open flight trajectory optimizer built with non-linear optimal control method
 
+## Sims
+* [AirTrafficSim](https://github.com/HKUST-OCTAD-LAB/AirTrafficSim) - Web-based air traffic simulation and visualization platform for ATM research.
+
 ## Other Lists
 * [awesome-flying](https://github.com/bauidch/awesome-flying) - A curated list of flying/aviation tools
 
