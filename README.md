@@ -62,8 +62,8 @@ A list of open-source aviation projects and data.
 
 | name                                                                                                                      | last_modified       | row_count   |
 |:--------------------------------------------------------------------------------------------------------------------------|:--------------------|:------------|
-| [airports.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/airports.csv)                       | 2025-04-02 01:53:11 | 82,825      |
-| [runways.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/runways.csv)                         | 2025-04-02 01:53:11 | 46,715      |
+| [airports.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/airports.csv)                       | 2025-04-03 01:53:11 | 82,832      |
+| [runways.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/runways.csv)                         | 2025-04-03 01:53:11 | 46,721      |
 | [airport-frequencies.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/airport-frequencies.csv) | 2025-04-01 01:53:11 | 30,103      |
 | [airport-comments.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/airport-comments.csv)       | 2025-03-31 01:53:11 | 15,469      |
 | [regions.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/regions.csv)                         | 2025-03-23 02:53:11 | 3,928       |
