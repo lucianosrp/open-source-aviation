@@ -38,7 +38,6 @@ A list of open-source aviation projects and data.
 * [free_airports.json.zip](https://exports.aviowiki.com/free_airports.json.zip) - 32K structured airport data
 
 ## Weather Data
-
 * [NOAA's METAR](https://tgftp.nws.noaa.gov/data/observations/metar/stations/) - Up-to-date METARs, for a specific station you can add the {ICAO}.TXT at the end of the url (e.g. [EGLL](https://tgftp.nws.noaa.gov/data/observations/metar/stations/EGLL.TXT))
 * [AVWX-Engine](https://github.com/avwx-rest/avwx-engine) - Aviation Weather parsing engine. METAR & TAF
 
@@ -49,6 +48,12 @@ A list of open-source aviation projects and data.
 * [traffic-viz](https://github.com/xoolive/traffic) - A toolbox for processing and analysing air traffic data
 * [pitot](https://github.com/open-aviation/pitot) - A toolbox for aeronautic calculations
 * [openap-top](https://github.com/junzis/openap-top) - Open flight trajectory optimizer built with non-linear optimal control method
+* [aeronautical_charting](https://github.com/antoniolocandro/aeronautical_charting) - Stylesheets for aeronautical charting
+* [qOLS](https://github.com/FLYGHT7/qOLS) - Qgis extension to create Obstacle Limitation Surfaces
+
+## AIXM
+#### [delorean-aixm.io](https://delorean-aixm.io/)
+ * [delorean-aixm](https://github.com/3l-gee/delorean-aixm) - ETL tool to manage AIXM dataset with postgresql
 
 ## Sims
 * [AirTrafficSim](https://github.com/HKUST-OCTAD-LAB/AirTrafficSim) - Web-based air traffic simulation and visualization platform for ATM research.
