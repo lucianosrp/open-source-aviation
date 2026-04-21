@@ -67,9 +67,9 @@ A list of open-source aviation projects and data.
 
 | name                                                                                                                      | last_modified       | row_count   |
 |:--------------------------------------------------------------------------------------------------------------------------|:--------------------|:------------|
-| [airports.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/airports.csv)                       | 2026-04-20 01:53:12 | 85,188      |
-| [runways.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/runways.csv)                         | 2026-04-20 01:53:12 | 47,787      |
-| [airport-comments.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/airport-comments.csv)       | 2026-04-20 01:53:12 | 16,125      |
+| [airports.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/airports.csv)                       | 2026-04-21 01:53:13 | 85,202      |
+| [runways.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/runways.csv)                         | 2026-04-21 01:53:13 | 47,794      |
+| [airport-comments.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/airport-comments.csv)       | 2026-04-21 01:53:13 | 16,129      |
 | [airport-frequencies.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/airport-frequencies.csv) | 2026-04-18 01:53:13 | 30,248      |
 | [regions.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/regions.csv)                         | 2026-04-08 01:53:13 | 3,982       |
 | [navaids.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/navaids.csv)                         | 2025-03-02 02:53:11 | 11,010      |
