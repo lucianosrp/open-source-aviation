@@ -10,6 +10,9 @@ A list of open-source aviation projects and data.
 * [Weather Data](#weather-data)
 * [OSINT](#osint)
 * [Tools and Libraries](#tools-and-libraries)
+* [Guide](#Guide)
+* [AIXM](#AIXM)
+* [Sims](#Sims)
 * [Other Lists](#other-lists)
 
 
@@ -50,6 +53,9 @@ A list of open-source aviation projects and data.
 * [openap-top](https://github.com/junzis/openap-top) - Open flight trajectory optimizer built with non-linear optimal control method
 * [aeronautical_charting](https://github.com/antoniolocandro/aeronautical_charting) - Stylesheets for aeronautical charting
 * [qOLS](https://github.com/FLYGHT7/qOLS) - Qgis extension to create Obstacle Limitation Surfaces
+
+## Guide
+* [How to take Aerial Photographs of Hong Kong Disneyland](https://github.com/lincolnlychan/How-to-take-Aerial-Photographs-of-Hong-Kong-Disneyland) - Tutorial/Guide on How to take Aerial Photographs of Hong Kong Disneyland
 
 ## AIXM
 #### [delorean-aixm.io](https://delorean-aixm.io/)
