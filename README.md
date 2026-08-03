@@ -56,6 +56,7 @@ A list of open-source aviation projects and data.
 
 ## Guide
 * [How to take Aerial Photographs of Hong Kong Disneyland](https://github.com/lincolnlychan/How-to-take-Aerial-Photographs-of-Hong-Kong-Disneyland) - Tutorial/Guide on How to take Aerial Photographs of Hong Kong Disneyland
+* [Aircraft Flight Mechanics](https://www.aircraftflightmechanics.com/) - Guide on Aircraft Flight Mechanics
 
 ## AIXM
 #### [delorean-aixm.io](https://delorean-aixm.io/)
