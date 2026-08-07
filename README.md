@@ -63,6 +63,7 @@ A list of open-source aviation projects and data.
  * [delorean-aixm](https://github.com/3l-gee/delorean-aixm) - ETL tool to manage AIXM dataset with postgresql
 
 ## Sims
+* [FlightGear](https://www.flightgear.org/) - Open-source flight simulator 
 * [AirTrafficSim](https://github.com/HKUST-OCTAD-LAB/AirTrafficSim) - Web-based air traffic simulation and visualization platform for ATM research.
 
 ## Other Lists
