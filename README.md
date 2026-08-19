@@ -31,6 +31,9 @@ A list of open-source aviation projects and data.
 * [navaids.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/navaids.csv)
 * [airport-comments.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/airport-comments.csv) - Community comments
 
+#### [logibook](https://logibook.dataint.net/en/countries)
+* [logibook airports](https://logibook.dataint.net/en/countries) - Browsable reference over OurAirports data: per-airport runway & taxiway layout diagrams (rendered from OpenStreetMap), radio frequencies, runway dimensions/surface/heading, plus cross-links to the nearest ports, cities and trade zones by distance. Per-country roll-ups (e.g. [Cyprus](https://logibook.dataint.net/en/countries/cyprus/airports)) add World Bank air-transport indicators. 25 languages, no registration.
+
 #### [openflights.org](https://openflights.org/)
 * [airports.dat](https://raw.githubusercontent.com/jpatokal/openflights/master/data/airports.dat) - Airport data, might be outdated
 * [airports-extended.dat](https://raw.githubusercontent.com/jpatokal/openflights/master/data/airports-extended.dat) - Airports, train stations and ferry terminals, including user contributions
