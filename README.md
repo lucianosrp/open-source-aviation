@@ -67,6 +67,7 @@ A list of open-source aviation projects and data.
 
 ## Sims
 * [FlightGear](https://www.flightgear.org/) - Open-source flight simulator 
+* [Orbiter](https://www.orbiter-forum.com/) - Open Source flight and spaceflight Simulator 
 * [AirTrafficSim](https://github.com/HKUST-OCTAD-LAB/AirTrafficSim) - Web-based air traffic simulation and visualization platform for ATM research.
 
 ## Other Lists
