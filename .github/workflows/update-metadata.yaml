@@ -1,40 +1,99 @@
 name: Update Metadata
 
 on:
-  push:
-    branches:
-      - main
-
   schedule:
-    - cron: "0 8 * * *"
+    # 05:17 UTC. The OurAirports exports land around 01:53 UTC, so this picks
+    # them up the same morning. Off-the-hour to avoid the scheduler's peak.
+    - cron: "17 5 * * *"
+
+  # Refresh immediately when a dataset link is added or the script changes.
+  push:
+    branches: [main]
+    paths:
+      - README.md
+      - scripts/update_metadata.py
+      - .github/workflows/update-metadata.yaml
 
   workflow_dispatch:
 
+# Least privilege: the job only needs to push the regenerated README.
+permissions:
+  contents: write
+
+# A scheduled run and a push-triggered run must never push concurrently, or one
+# of them loses the race and fails. Queue instead of cancelling so a refresh
+# already in flight is not thrown away.
+concurrency:
+  group: update-metadata
+  cancel-in-progress: false
+
 jobs:
-  run-python:
+  update:
+    # Forks have no write access, so the inherited schedule would only ever
+    # produce failures for them.
+    if: github.repository == 'lucianosrp/open-source-aviation'
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
+        # Pinned to an immutable release tag rather than the mutable @v7.
+        uses: actions/checkout@v7.0.1
         with:
-          python-version: "3.12"
+          # The push step rebases if the branch moved under us, which needs
+          # real history rather than a shallow clone.
+          fetch-depth: 0
 
-      - name: Install dependencies
-        run: |
-          curl -LsSf https://astral.sh/uv/install.sh | sh
-          uv pip install -r requirements.lock --system
+      - name: Install uv
+        # setup-uv stopped publishing @v10-style major tags in v8.0.0 to reduce
+        # supply-chain risk, so an exact release tag is the documented pin.
+        uses: astral-sh/setup-uv@v10.0.1
+        with:
+          # 0.12.4 rather than 0.12.5: v10.0.1 ships bundled checksums for
+          # 0.12.4, so the download is verified by the action.
+          version: "0.12.4"
+          python-version: "3.14"
+          # The script has no dependencies, so the uv cache directory is never
+          # created. Caching defaults to "auto" (on for push and schedule) and
+          # the action fails when there is nothing to upload.
+          enable-cache: false
 
-      - name: Update Tabl
+      - name: Refresh metadata table
         env:
+          # Lifts the commits API from 60 to 1,000 requests per hour.
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # Nothing to install. The script writes the table and any warnings to
+        # the run summary, and exits non-zero only if a dataset could not be
+        # resolved at all.
+        run: uv run --script scripts/update_metadata.py
+
+      - name: Commit and push
         run: |
-          git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          python src/open_source_aviation/data.py
+          set -euo pipefail
+
+          # Committing unconditionally is why this workflow used to fail on
+          # every run where the upstream data had not changed.
+          if git diff --quiet -- README.md; then
+            echo "README.md is unchanged, nothing to commit."
+            exit 0
+          fi
+
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add README.md
-          git commit -m "Update Table"
-          git push
+          git commit -m 'Update data metadata table'
+
+          # The branch can move between checkout and push. The table is
+          # regenerated deterministically, so replaying our single commit on
+          # top of whatever landed is always safe.
+          for attempt in 1 2 3; do
+            if git push; then
+              echo "Pushed the refreshed table."
+              exit 0
+            fi
+            echo "Push rejected (attempt ${attempt}); rebasing onto origin/${GITHUB_REF_NAME}."
+            git pull --rebase --autostash origin "${GITHUB_REF_NAME}"
+          done
+
+          echo "::error::Could not push after 3 attempts." >&2
+          exit 1
