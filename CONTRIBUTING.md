@@ -74,6 +74,12 @@ and is reported as a warning, so a transient upstream outage never deletes a row
 If a dataset has no previously published values to fall back on, the run exits
 non-zero rather than quietly shipping an incomplete table.
 
+## Licensing of contributions
+
+By opening a pull request you agree to release your contribution under
+[CC0-1.0](LICENSE), the same public domain dedication that covers the rest of
+the repository. This applies to list entries and to code alike.
+
 ## Running the checks
 
 ```bash

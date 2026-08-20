@@ -153,5 +153,11 @@ to reproduce it locally see
 
 ## License
 
-The list itself is released under [CC0-1.0](LICENSE). Linked projects and
-datasets carry their own licences, check each before use.
+Everything in this repository -- the curated list and the tooling under
+`scripts/`, `tests/` and `.github/` -- is released under
+[CC0-1.0](LICENSE), a public domain dedication. No attribution required.
+
+Note that CC0 waives copyright but expressly does not license patent or
+trademark rights, and is not OSI-approved.
+
+Linked projects and datasets carry their own licences, check each before use.
