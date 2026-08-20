@@ -156,15 +156,11 @@ def test_count_records_rejects_oversized_stream(um, monkeypatch):
 
 def _record(um, filename, last_modified="2020-01-01 00:00:00", rows="1", size="1 B"):
     source = um.parse_source(f"{OURAIRPORTS}/{filename}")
-    return um.Record(
-        source=source, last_modified=last_modified, row_count=rows, size=size
-    )
+    return um.Record(source=source, last_modified=last_modified, row_count=rows, size=size)
 
 
 def test_render_table_is_rectangular(um):
-    table = um.render_table(
-        [_record(um, "a.csv"), _record(um, "much-longer-name.csv")]
-    )
+    table = um.render_table([_record(um, "a.csv"), _record(um, "much-longer-name.csv")])
     lines = table.splitlines()
     assert len({len(line) for line in lines}) == 1, "rows must be padded alike"
     assert all(line.startswith("|") and line.endswith("|") for line in lines)
@@ -244,7 +240,8 @@ def test_parse_published_rows_reads_current_schema(um):
             [
                 "| name | last_modified | row_count | size |",
                 "|:-----|:--------------|----------:|-----:|",
-                f"| [airports.csv]({OURAIRPORTS}/airports.csv) | 2026-01-01 00:00:00 | 85,936 | 12.1 MB |",
+                f"| [airports.csv]({OURAIRPORTS}/airports.csv) "
+                "| 2026-01-01 00:00:00 | 85,936 | 12.1 MB |",
             ]
         ),
     )
@@ -352,3 +349,48 @@ def test_repo_readme_is_wired_up(um):
     assert "airports.csv" in filenames
     assert "airports.dat" in filenames
     assert len(filenames) == len(set(filenames)) >= 10
+
+
+# --------------------------------------------------------------------------- #
+# .env handling
+# --------------------------------------------------------------------------- #
+
+
+def test_load_dotenv_sets_missing_variables(um, tmp_path, monkeypatch):
+    env = tmp_path / ".env"
+    env.write_text(
+        "\n".join(
+            [
+                "# a comment",
+                "",
+                "GH_TOKEN=plain-value",
+                'QUOTED="double"',
+                "SINGLE='single'",
+                "export EXPORTED=prefixed",
+                "  SPACED  =  padded  ",
+                "malformed-line-without-equals",
+            ]
+        )
+    )
+    monkeypatch.delenv("GH_TOKEN", raising=False)
+    for key in ("QUOTED", "SINGLE", "EXPORTED", "SPACED"):
+        monkeypatch.delenv(key, raising=False)
+
+    um.load_dotenv(env)
+    assert um.os.environ["GH_TOKEN"] == "plain-value"
+    assert um.os.environ["QUOTED"] == "double"
+    assert um.os.environ["SINGLE"] == "single"
+    assert um.os.environ["EXPORTED"] == "prefixed"
+    assert um.os.environ["SPACED"] == "padded"
+
+
+def test_load_dotenv_does_not_override_the_environment(um, tmp_path, monkeypatch):
+    env = tmp_path / ".env"
+    env.write_text("GH_TOKEN=from-file\n")
+    monkeypatch.setenv("GH_TOKEN", "from-environment")
+    um.load_dotenv(env)
+    assert um.os.environ["GH_TOKEN"] == "from-environment"
+
+
+def test_load_dotenv_tolerates_a_missing_file(um, tmp_path):
+    um.load_dotenv(tmp_path / "does-not-exist")  # must not raise

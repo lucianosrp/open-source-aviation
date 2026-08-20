@@ -508,6 +508,30 @@ def _raise_csv_field_limit() -> None:
             limit >>= 1
 
 
+def load_dotenv(path: Path) -> None:
+    """Fill in missing environment variables from a local ``.env`` file.
+
+    Stands in for python-dotenv so the script stays dependency-free. Real
+    environment variables always win, and an unparseable line is skipped rather
+    than raising -- a malformed .env should not stop the refresh.
+    """
+    try:
+        content = path.read_text(encoding="utf-8")
+    except OSError:
+        return
+    for raw in content.splitlines():
+        line = raw.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, _, value = line.partition("=")
+        key = key.removeprefix("export ").strip()
+        value = value.strip()
+        if len(value) >= 2 and value[0] == value[-1] and value[0] in "\"'":
+            value = value[1:-1]
+        if key and key not in os.environ:
+            os.environ[key] = value
+
+
 def parse_args(argv: Sequence[str] | None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Refresh the Data Metadata table in README.md.")
     parser.add_argument(
@@ -544,6 +568,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         stream=sys.stderr,
     )
     _raise_csv_field_limit()
+    load_dotenv(REPO_ROOT / ".env")
 
     readme_path: Path = args.readme
     try:
