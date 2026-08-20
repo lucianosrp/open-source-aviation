@@ -1,4 +1,7 @@
-# Keeps the pinned action versions current, so pinning does not mean rotting.
+# Tracks the `uses:` action refs only. It cannot see the uv version passed as a
+# `with:` input, nor the `ruff@...` and `pytest==...` versions embedded in `run:`
+# strings -- those need bumping by hand. There is a `uv` ecosystem, but it
+# requires a pyproject.toml or uv.lock, which this repo deliberately lacks.
 version: 2
 updates:
   - package-ecosystem: github-actions

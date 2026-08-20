@@ -37,27 +37,34 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v7
+        # Pinned to an immutable release tag rather than the mutable @v7.
+        uses: actions/checkout@v7.0.1
         with:
           # The push step rebases if the branch moved under us, which needs
           # real history rather than a shallow clone.
           fetch-depth: 0
 
       - name: Install uv
+        # setup-uv stopped publishing @v10-style major tags in v8.0.0 to reduce
+        # supply-chain risk, so an exact release tag is the documented pin.
         uses: astral-sh/setup-uv@v10.0.1
         with:
-          version: "0.11.8"
-          python-version: "3.12"
-          # Avoids being rate-limited when fetching the uv release.
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          # 0.12.4 rather than 0.12.5: v10.0.1 ships bundled checksums for
+          # 0.12.4, so the download is verified by the action.
+          version: "0.12.4"
+          python-version: "3.14"
+          # The script has no dependencies, so the uv cache directory is never
+          # created. Caching defaults to "auto" (on for push and schedule) and
+          # the action fails when there is nothing to upload.
+          enable-cache: false
 
       - name: Refresh metadata table
         env:
           # Lifts the commits API from 60 to 1,000 requests per hour.
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        # The script has no dependencies, so there is nothing to install. It
-        # writes a summary of the table and any warnings to the run summary,
-        # and exits non-zero only if a dataset could not be resolved at all.
+        # Nothing to install. The script writes the table and any warnings to
+        # the run summary, and exits non-zero only if a dataset could not be
+        # resolved at all.
         run: uv run --script scripts/update_metadata.py
 
       - name: Commit and push

@@ -13,26 +13,58 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  checks:
+  lint:
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@v7.0.1
+        with:
+          # This job never writes to git, so it has no use for the token.
+          persist-credentials: false
 
       - name: Install uv
         uses: astral-sh/setup-uv@v10.0.1
         with:
-          version: "0.11.8"
-          python-version: "3.12"
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          version: "0.12.4"
+          python-version: "3.14"
+          enable-cache: true
+          # None of the default cache-key globs (requirements*.txt,
+          # pyproject.toml, uv.lock...) exist here, which would freeze the key
+          # forever. The pinned tool versions live in this file, so key off it.
+          cache-dependency-glob: .github/workflows/ci.yaml
 
       - name: Lint
         run: uvx ruff@0.16.3 check --output-format=github .
 
       - name: Check formatting
-        run: uvx ruff@0.16.3 format --check .
+        run: uvx ruff@0.16.3 format --check --output-format=github .
+
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    strategy:
+      fail-fast: false
+      matrix:
+        # Both ends of the range the script declares support for
+        # (requires-python = ">=3.11").
+        python-version: ["3.11", "3.14"]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v10.0.1
+        with:
+          version: "0.12.4"
+          python-version: ${{ matrix.python-version }}
+          enable-cache: true
+          cache-dependency-glob: .github/workflows/ci.yaml
 
       # Offline by design: the network layer is exercised through injected
       # failures, so pull requests never depend on upstream availability or

@@ -1,5 +1,12 @@
 line-length = 100
+# Ruff does not read PEP 723 inline metadata, only a pyproject.toml that does
+# not exist here, so without this it would silently assume py310 -- below the
+# script's declared floor.
 target-version = "py311"
+
+# Ruff 0.16 formats Python code blocks inside Markdown by default. Docs here are
+# prose, and a stray snippet in a README should not fail CI on a docs-only PR.
+extend-exclude = ["*.md"]
 
 [lint]
 select = [
