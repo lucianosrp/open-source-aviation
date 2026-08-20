@@ -217,6 +217,25 @@ def _rate_limit_delay(headers: Any) -> float | None:
     return None
 
 
+def _rate_limit_detail(headers: Any) -> str:
+    """Explain a 403 that is an exhausted quota rather than a permission error.
+
+    GitHub returns 403 for both. When the reset is further out than we are
+    willing to wait the request is not retried, so the message is the only clue
+    the operator gets.
+    """
+    if headers.get("X-RateLimit-Remaining") != "0":
+        return ""
+    reset = headers.get("X-RateLimit-Reset")
+    try:
+        minutes = max(0.0, (float(reset) - time.time()) / 60.0) if reset else None
+    except ValueError:
+        minutes = None
+    if minutes is None:
+        return " (API rate limit exhausted; set GH_TOKEN to raise it)"
+    return f" (API rate limit exhausted, resets in {minutes:.0f}m; set GH_TOKEN to raise it)"
+
+
 def _open(url: str, headers: dict[str, str]) -> Any:
     """Open *url*, mapping transport failures onto retryable/fatal errors."""
     request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, **headers})
@@ -224,12 +243,13 @@ def _open(url: str, headers: dict[str, str]) -> Any:
         return urllib.request.urlopen(request, timeout=HTTP_TIMEOUT)
     except urllib.error.HTTPError as exc:
         status, delay = exc.code, _rate_limit_delay(exc.headers)
+        detail = _rate_limit_detail(exc.headers)
         exc.close()
         if delay is not None:
             raise RetryableError(f"HTTP {status} (rate limited)", delay) from exc
         if status in RETRYABLE_STATUS:
-            raise RetryableError(f"HTTP {status}") from exc
-        raise SourceError(f"HTTP {status}") from exc
+            raise RetryableError(f"HTTP {status}{detail}") from exc
+        raise SourceError(f"HTTP {status}{detail}") from exc
     except OSError as exc:  # URLError, timeouts, connection resets
         raise RetryableError(f"{type(exc).__name__}: {exc}") from exc
 

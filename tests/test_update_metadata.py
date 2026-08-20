@@ -394,3 +394,21 @@ def test_load_dotenv_does_not_override_the_environment(um, tmp_path, monkeypatch
 
 def test_load_dotenv_tolerates_a_missing_file(um, tmp_path):
     um.load_dotenv(tmp_path / "does-not-exist")  # must not raise
+
+
+def test_rate_limit_detail_explains_an_exhausted_quota(um, monkeypatch):
+    monkeypatch.setattr(um.time, "time", lambda: 1000.0)
+    detail = um._rate_limit_detail({"X-RateLimit-Remaining": "0", "X-RateLimit-Reset": "3400"})
+    assert "rate limit exhausted" in detail
+    assert "40m" in detail
+    assert "GH_TOKEN" in detail
+
+
+def test_rate_limit_detail_silent_on_a_genuine_403(um):
+    """A permission error must not be mislabelled as rate limiting."""
+    assert um._rate_limit_detail({"X-RateLimit-Remaining": "4999"}) == ""
+
+
+def test_rate_limit_detail_handles_a_missing_reset(um):
+    detail = um._rate_limit_detail({"X-RateLimit-Remaining": "0"})
+    assert "rate limit exhausted" in detail and "resets in" not in detail
