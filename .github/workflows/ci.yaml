@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v10.0.1
+        with:
+          version: "0.11.8"
+          python-version: "3.12"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Lint
+        run: uvx ruff@0.16.3 check --output-format=github .
+
+      - name: Check formatting
+        run: uvx ruff@0.16.3 format --check .
+
+      # Offline by design: the network layer is exercised through injected
+      # failures, so pull requests never depend on upstream availability or
+      # burn the unauthenticated API quota available to forks.
+      - name: Test
+        run: uv run --no-project --with pytest==9.1.1 pytest -q tests/
