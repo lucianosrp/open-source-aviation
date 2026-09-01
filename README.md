@@ -98,6 +98,7 @@ aeronautical information (airspaces, routes, procedures).
 * [openap-top](https://github.com/junzis/openap-top) - Open flight trajectory optimizer built with non-linear optimal control method
 * [aeronautical_charting](https://github.com/antoniolocandro/aeronautical_charting) - Stylesheets for aeronautical charting
 * [qOLS](https://github.com/FLYGHT7/qOLS) - Qgis extension to create Obstacle Limitation Surfaces
+* [jetway](https://github.com/adamf/jetway) - Open-source airline and GDS reservation messaging gateway
 
 ### OSINT
 
