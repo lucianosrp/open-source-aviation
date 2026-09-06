@@ -139,8 +139,8 @@ to reproduce it locally see
 <!-- data-metadata:start -->
 | name                                                                                                                      | last_modified       | row_count |     size |
 |:--------------------------------------------------------------------------------------------------------------------------|:--------------------|----------:|---------:|
+| [airports.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/airports.csv)                       | 2026-09-06 01:53:13 |    86,050 |  12.1 MB |
 | [airport-frequencies.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/airport-frequencies.csv) | 2026-09-05 01:53:14 |    30,343 |   1.2 MB |
-| [airports.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/airports.csv)                       | 2026-09-05 01:53:14 |    86,042 |  12.1 MB |
 | [runways.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/runways.csv)                         | 2026-09-05 01:53:14 |    48,229 |   3.8 MB |
 | [airport-comments.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/airport-comments.csv)       | 2026-09-04 01:53:13 |    16,408 |   4.5 MB |
 | [regions.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/regions.csv)                         | 2026-08-15 01:53:13 |     3,987 | 473.9 KB |
