@@ -139,10 +139,10 @@ to reproduce it locally see
 <!-- data-metadata:start -->
 | name                                                                                                                      | last_modified       | row_count |     size |
 |:--------------------------------------------------------------------------------------------------------------------------|:--------------------|----------:|---------:|
+| [airport-frequencies.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/airport-frequencies.csv) | 2026-09-24 01:53:19 |    30,350 |   1.2 MB |
+| [airports.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/airports.csv)                       | 2026-09-24 01:53:19 |    86,126 |  12.1 MB |
+| [runways.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/runways.csv)                         | 2026-09-24 01:53:19 |    48,259 |   3.8 MB |
 | [airport-comments.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/airport-comments.csv)       | 2026-09-23 01:53:19 |    16,415 |   4.5 MB |
-| [airports.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/airports.csv)                       | 2026-09-23 01:53:19 |    86,119 |  12.1 MB |
-| [runways.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/runways.csv)                         | 2026-09-23 01:53:19 |    48,254 |   3.8 MB |
-| [airport-frequencies.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/airport-frequencies.csv) | 2026-09-20 01:53:18 |    30,348 |   1.2 MB |
 | [regions.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/regions.csv)                         | 2026-09-11 01:53:14 |     3,987 | 473.9 KB |
 | [navaids.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/navaids.csv)                         | 2026-07-30 01:53:13 |    11,008 |   1.5 MB |
 | [countries.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/countries.csv)                     | 2025-02-28 02:53:11 |       249 |  24.0 KB |
