@@ -15,6 +15,7 @@ A curated list of open-source aviation projects, tools and datasets.
 * [Data](#data)
   * [ADS-B Data](#ads-b-data)
   * [Airport Data](#airport-data)
+  * [Airport Ground Access](#airport-ground-access)
   * [Weather Data](#weather-data)
   * [AIXM](#aixm)
 * [Software](#software)
@@ -74,6 +75,10 @@ Wider coverage of airlines and routes than the others, but unmaintained.
 > [!IMPORTANT]
 > The OpenFlights `.dat` exports have no header row and have not been updated
 > upstream since 2019. Read them with explicit column names.
+
+### Airport Ground Access
+
+* [Airport-to-City-Centre Access Index](https://mubboo.flights/research/airport-city-access-index) - CC BY 4.0 [CSV data](https://mubboo.flights/research/airport-city-access-index/data/mubboo-airport-city-access-index-2026.csv) for 60 cities in 39 countries, with public-transport times/fares, taxi figures, field-level sources and a data dictionary. Official material retrieved 26–27 September 2026; scheduled or stated times, not measured journeys or live schedules. Missing values remain explicit.
 
 ### Weather Data
 
