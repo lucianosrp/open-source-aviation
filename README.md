@@ -108,6 +108,7 @@ aeronautical information (airspaces, routes, procedures).
 ### OSINT
 
 * [skytrack](https://github.com/ANG13T/skytrack) - A planespotting and aircraft OSINT tool made using Python
+* [Tail Number Report](https://tailnumberreport.com/) - Free FAA registration + accident-count lookup by tail number, with a paid ($79) full report. Cross-matches NTSB records by manufacturer serial number, so an accident filed under a prior N-number still surfaces after a re-registration.
 
 ### Sims
 
