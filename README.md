@@ -39,12 +39,12 @@ how current a file is before downloading it.
 
 ### Airport Data
 
-Airport, runway and navigation reference data. Four independent sources, listed
+Airport, runway and navigation reference data. Five independent sources, listed
 newest-maintained first.
 
 #### [OurAirports.com](https://ourairports.com/)
 
-Actively maintained and the most complete of the four. Updated daily.
+Actively maintained and the most complete of the five. Updated daily.
 
 * [ourairports.com](https://ourairports.com/) - Community-driven airport database which includes geo coordinates, airport names and more.
 * [airports.csv](https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/airports.csv) - Raw CSV file of OurAirports.com, 78K+ airports
@@ -62,6 +62,14 @@ Actively maintained and the most complete of the four. Updated daily.
 #### [aviowiki](https://aviowiki.com/)
 
 * [free_airports.json.zip](https://exports.aviowiki.com/free_airports.json.zip) - 32K structured airport data
+
+#### [WhatFliesWhere](https://whatflieswhere.com/data)
+
+Flight counts for each airport with scheduled passenger flights, with locations
+from OurAirports. A new version every quarter, each archived on
+[Zenodo](https://doi.org/10.5281/zenodo.24569008) with a DOI.
+
+* [airports.csv](https://raw.githubusercontent.com/whatflieswhere/airport-data/main/airports.csv) - 3,000+ airports with IATA and ICAO codes, coordinates, and each airport's destinations, countries served, airlines and weekly flights, counted from the flights airlines have on sale. CC BY 4.0.
 
 #### [openflights.org](https://openflights.org/)
 
